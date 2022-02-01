@@ -9,7 +9,6 @@ var searchRange = function(nums, target) {
             result[1]=index;
         }
     }
-
     console.log(result);
 };
 
