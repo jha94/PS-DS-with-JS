@@ -11,5 +11,4 @@ var wordBreak = function(s, wordDict) {
         return false
     }
 };
-
  console.log(wordBreak("cars", ["car","ca","rs"]))
