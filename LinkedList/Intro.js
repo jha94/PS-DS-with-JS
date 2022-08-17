@@ -1,41 +1,65 @@
 class Node{
-    constructor(data){
-        this.data = data;
-        this.next = null;
+    constructor(element){
+        this.element = element;
+        this.next = null
     }
 }
 
 class LinkedList{
     constructor(){
         this.head = null;
+        this.length = 0;
     }
     add(element){
-        let head2 = this.head;
-        
         if(this.head===null){
             this.head = element
         } else{
-            while(head2.next){
-                head2 = head2.next
+            var currentNode = this.head;
+            while(currentNode.next){
+                currentNode = currentNode.next
             }
-            head2.next = element
+            currentNode.next = element;
         }
+        this.length++
     }
     print(){
-        while(this.head){
-            console.log(this.head.data)
-            this.head = this.head.next
+        var currentNode = this.head;
+        while(currentNode){
+            console.log(currentNode.element)
+            currentNode = currentNode.next;
         }
     }
+    size(){
+        console.log(this.length)
+    }
+
+    remove(element){
+        var currentNode = this.head;
+        var previousNode;
+        if(currentNode.element===element){
+            currentNode = currentNode.next
+        } else{
+            while(currentNode.element!==element){
+                previousNode=currentNode;
+                currentNode = currentNode.next;
+            }
+            previousNode.next = currentNode.next
+        }
+        this.length--;
+    }
+    
 }
 
-let node = new Node(1);
+let node1 = new Node(1);
 let node2 = new Node(2);
 let node3 = new Node(3);
-let node4 = new Node(4);
-let list = new LinkedList();
-list.add(node)
-list.add(node2)
-list.add(node3)
-list.add(node4)
-list.print()
+let linkedlist = new LinkedList();
+linkedlist.add(node1);
+linkedlist.add(node2);
+linkedlist.add(node3);
+linkedlist.size()
+linkedlist.print()
+linkedlist.remove(3);
+linkedlist.size()
+linkedlist.print()
+
