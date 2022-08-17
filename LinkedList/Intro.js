@@ -48,7 +48,72 @@ class LinkedList{
             }
             prevNode.next = currentNode.next;
         }
+    }
 
+    indexOf(element){
+    let currentNode = this.head;
+    let index=-1;
+    while(currentNode){
+        index++;
+        if(currentNode.element===element){
+            return index;
+        }
+        currentNode=currentNode.next
+    }
+    return -1;
+    }
+
+    elementAt(index){
+        let currentNode = this.head;
+        let count = 0;
+        while(count<index){
+            count++;
+            currentNode = currentNode.next
+        }
+        return currentNode.element;
+    }
+
+    addAt(index, element){
+        let currentNode = this.head;
+        let previousNode;
+        let currentIndex = 0;
+        if(index>this.length){
+            return false
+        }
+        if(index===0){
+            element.next = currentNode;
+            this.head = element;
+        } else{
+            while(currentIndex<index){
+                currentIndex++;
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            element.next = currentNode;
+            previousNode.next = element;
+        }
+        this.length++
+    }
+
+    removeAt(index){
+        let currentNode = this.head;
+        let previousNode;
+        let currentIndex = 0;
+        if(index<0 || index>this.length){
+            return false
+        }
+        if(index===0){
+            this.head = currentNode.next;
+        } else{
+            while(currentIndex<index){
+                currentIndex++;
+                previousNode = currentNode;
+                currentNode = currentNode.next
+            }
+            previousNode.next = currentNode.next;
+        }
+        this.length--;
+        return currentNode.element;
     }
 }
 
@@ -61,8 +126,10 @@ linkedList.add(node2);
 linkedList.print();
 linkedList.size();
 linkedList.add(node3);
+console.log('elementAt=====',linkedList.elementAt(3))
 linkedList.print()
 linkedList.size()
 linkedList.isEmpty()
+console.log('indexOf=====',linkedList.indexOf(3))
 linkedList.remove(2)
 linkedList.print()
