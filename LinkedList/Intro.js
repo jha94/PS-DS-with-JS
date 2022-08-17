@@ -12,9 +12,9 @@ class LinkedList{
     }
     add(element){
         if(this.head===null){
-            this.head = element
+             this.head = element;
         } else{
-            var currentNode = this.head;
+            let currentNode = this.head;
             while(currentNode.next){
                 currentNode = currentNode.next
             }
@@ -22,44 +22,47 @@ class LinkedList{
         }
         this.length++
     }
+
     print(){
-        var currentNode = this.head;
+        let currentNode = this.head;
         while(currentNode){
-            console.log(currentNode.element)
+            console.log(currentNode.element);
             currentNode = currentNode.next;
         }
     }
     size(){
-        console.log(this.length)
+        console.log('Length of Linked List', this.length)
     }
-
+    isEmpty(){
+        this.length===0?console.log('Linked List is empty'):console.log('Linked List is not empty')
+    }
     remove(element){
-        var currentNode = this.head;
-        var previousNode;
-        if(currentNode.element===element){
-            currentNode = currentNode.next
+        let currentNode = this.head;
+        let prevNode;
+        if(currentNode.element ===element){
+            this.head = currentNode.next
         } else{
             while(currentNode.element!==element){
-                previousNode=currentNode;
+                prevNode = currentNode;
                 currentNode = currentNode.next;
             }
-            previousNode.next = currentNode.next
+            prevNode.next = currentNode.next;
         }
-        this.length--;
+
     }
-    
 }
 
 let node1 = new Node(1);
 let node2 = new Node(2);
 let node3 = new Node(3);
-let linkedlist = new LinkedList();
-linkedlist.add(node1);
-linkedlist.add(node2);
-linkedlist.add(node3);
-linkedlist.size()
-linkedlist.print()
-linkedlist.remove(3);
-linkedlist.size()
-linkedlist.print()
-
+let linkedList = new LinkedList();
+linkedList.add(node1);
+linkedList.add(node2);
+linkedList.print();
+linkedList.size();
+linkedList.add(node3);
+linkedList.print()
+linkedList.size()
+linkedList.isEmpty()
+linkedList.remove(2)
+linkedList.print()
