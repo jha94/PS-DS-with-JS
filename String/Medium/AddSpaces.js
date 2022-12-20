@@ -4,7 +4,7 @@ var addSpaces = function(s, spaces) {
          value = value+index;
         splittedArray.splice(value, 0, ' ')
     })
-    console.log(typeof splittedArray.join(''))
+    console.log(splittedArray.join(''))
 };
 
 addSpaces('LeetcodeHelpsMeLearn', [8,13,15])
