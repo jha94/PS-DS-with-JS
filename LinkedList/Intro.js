@@ -1,135 +1,92 @@
 class Node{
     constructor(element){
         this.element = element;
-        this.next = null
+        this.next = null;
     }
 }
 
 class LinkedList{
     constructor(){
         this.head = null;
-        this.length = 0;
+        this.size = 0;
     }
-    add(element){
-        if(this.head===null){
-             this.head = element;
+
+    add(node){
+        let currentNode = this.head;
+        if(currentNode===null){
+            this.head = node
         } else{
-            let currentNode = this.head;
             while(currentNode.next){
                 currentNode = currentNode.next
             }
-            currentNode.next = element;
+            currentNode.next = node;
         }
-        this.length++
+        this.size++;
     }
 
     print(){
         let currentNode = this.head;
         while(currentNode){
             console.log(currentNode.element);
-            currentNode = currentNode.next;
+            currentNode = currentNode.next
         }
     }
-    size(){
-        console.log('Length of Linked List', this.length)
-    }
-    isEmpty(){
-        this.length===0?console.log('Linked List is empty'):console.log('Linked List is not empty')
-    }
+
     remove(element){
         let currentNode = this.head;
-        let prevNode;
-        if(currentNode.element ===element){
+        let previousNode;
+        if(currentNode.element===element){
             this.head = currentNode.next
         } else{
             while(currentNode.element!==element){
-                prevNode = currentNode;
+                previousNode = currentNode;
                 currentNode = currentNode.next;
             }
-            prevNode.next = currentNode.next;
+            previousNode.next = currentNode.next;
         }
+        this.size--
     }
 
     indexOf(element){
-    let currentNode = this.head;
-    let index=-1;
-    while(currentNode){
-        index++;
-        if(currentNode.element===element){
-            return index;
+        let currentNode = this.head;
+        let index=0;
+        while(currentNode.element!==element){
+            index++;
+            currentNode = currentNode.next
         }
-        currentNode=currentNode.next
-    }
-    return -1;
+        return index>this.size?-1:index;
+
     }
 
     elementAt(index){
+        let count=0;
         let currentNode = this.head;
-        let count = 0;
         while(count<index){
             count++;
             currentNode = currentNode.next
         }
         return currentNode.element;
-    }
 
-    addAt(index, element){
-        let currentNode = this.head;
-        let previousNode;
-        let currentIndex = 0;
-        if(index>this.length){
-            return false
-        }
-        if(index===0){
-            element.next = currentNode;
-            this.head = element;
-        } else{
-            while(currentIndex<index){
-                currentIndex++;
-                previousNode = currentNode;
-                currentNode = currentNode.next;
-            }
-            element.next = currentNode;
-            previousNode.next = element;
-        }
-        this.length++
-    }
-
-    removeAt(index){
-        let currentNode = this.head;
-        let previousNode;
-        let currentIndex = 0;
-        if(index<0 || index>this.length){
-            return false
-        }
-        if(index===0){
-            this.head = currentNode.next;
-        } else{
-            while(currentIndex<index){
-                currentIndex++;
-                previousNode = currentNode;
-                currentNode = currentNode.next
-            }
-            previousNode.next = currentNode.next;
-        }
-        this.length--;
-        return currentNode.element;
     }
 }
 
 let node1 = new Node(1);
 let node2 = new Node(2);
 let node3 = new Node(3);
+let node6 = new Node(6);
+let node4 = new Node(4);
+let node5 = new Node(5);
+let node7 = new Node(6);
 let linkedList = new LinkedList();
 linkedList.add(node1);
 linkedList.add(node2);
-linkedList.print();
-linkedList.size();
+linkedList.add(node6);
 linkedList.add(node3);
-console.log('elementAt=====',linkedList.elementAt(3))
+linkedList.add(node4);
+linkedList.add(node5);
+linkedList.add(node7);
+// linkedList.print();
+linkedList.remove(6);
 linkedList.print()
-linkedList.size()
-linkedList.isEmpty()
-console.log('indexOf=====',linkedList.indexOf(3))
-linkedList.remove(2)
-linkedList.print()
+// console.log(linkedList.indexOf(1))
+// console.log(linkedList.elementAt(1))
