@@ -1,17 +1,9 @@
-function mul(a){
-    return function(b){
-        return function(c){
-            return a*b*c;
+ function mul(a){
+    return function mul2(b){
+        return function mul3(c){
+            console.log(a+b+c)
         }
     }
-}
+ }
 
-const mul = (a)=>{
-    return (b)=>{
-        return (c)=>{
-            return a*b*c;
-        }
-    }
-}
-
-console.log(mul(2)(3)(4))
+ mul(1)(2)(3)

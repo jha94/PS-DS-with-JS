@@ -6,7 +6,6 @@ let longestConsecutive = function(nums) {
     let max = 1;
     for(let index=1;index<unique.length;index++){
         if(first+1===unique[index]){
-            
             cons++
             max = max>cons?max:cons
         } else{
