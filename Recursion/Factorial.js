@@ -1,9 +1,19 @@
-const getFactorial = (number)=>{
-    if(number<=1){
-        return 1;
-    } else{
-        return number*getFactorial(number-1)
-    }
+// const getFactorial = (number)=>{
+//     if(number<=1){
+//         return 1;
+//     } else{
+//         return number*getFactorial(number-1)
+//     }
 
-}
-console.log(getFactorial(2))
+// }
+// console.log(getFactorial(2))
+
+
+
+
+
+
+
+
+
+

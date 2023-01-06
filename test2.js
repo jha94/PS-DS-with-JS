@@ -49,3 +49,8 @@
 
 // const numsArr = [1, 10, 2, 3, 4];
 // console.log(numsArr.sort((a,b)=>a-b)[(numsArr.length-1)-1]);
+
+console.log(a)
+console.log(b)
+var a = 10;
+let b = 20;

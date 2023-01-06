@@ -2,10 +2,10 @@
 // your program should return [[11, -4], [2, 5]]
 // because 11 + -4 = 7 and 2 + 5 = 7.
 
-//check if a string contains a substring that is a palindrome - abcababc
+// check if a string contains a substring that is a palindrome - abcababc
 
-//1->2->3 (not a palindrome)
-//1->2->1 (palindrome)
+// 1->2->3 (not a palindrome)
+// 1->2->1 (palindrome)
 
 // Given an expression string exp,
 // write a program to examine whether the pairs and the orders of
