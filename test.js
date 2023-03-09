@@ -11,24 +11,31 @@
 // write a program to examine whether the pairs and the orders of
 // “{“, “}”, “(“, “)”, “[“, “]” are correct in the given expression.
 
+// function getThis() {
+//     console.log(this);
+//   }
 
+//   const getThis2 = () =>{
+//     console.log(this);
+//   }
+  
+//   const obj1 = { name: "obj1" };
+  
+//   obj1.getThis = getThis;
+  
+// obj1.getThis();
 
-var lengthOfLongestSubstring = function(s) {
-    let firstPointer = 0;
-    let secondPointer = 0;
-    let allString = []
-    
-    while(firstPointer<s.length){
-        while(secondPointer<=s.length){
-            if(s.split('').slice(firstPointer, secondPointer).join('')!==''){
-            allString.push(s.split('').slice(firstPointer, secondPointer).join(''))
-            }
-            secondPointer++;
-        }
-        firstPointer++;
-        secondPointer=0;
-    }
-    // getHighest(allString)
-    console.log(allString)
+// obj1.getThis2 = getThis2;
+// obj1.getThis2
+
+const obj4 = {
+  name: "obj4",
+  getThis() {
+    return this;
+  },
 };
-lengthOfLongestSubstring('abcabcbb')
+
+const obj5 = { name: "obj5" };
+
+obj5.getThis = obj4.getThis;
+console.log(obj5.getThis()); // { name: 'obj5', getThis: [Function: getThis] }
